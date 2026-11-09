@@ -1,4 +1,6 @@
 spring:
+  rabbitmq:
+    host: rabbitmq
   datasource:
     url: jdbc:postgresql://postgres-facturation:5432/facturation_db
     username: clinique
