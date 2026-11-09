@@ -1,0 +1,20 @@
+# Configuration locale minimale.
+# La configuration complète (bases, RabbitMQ, Keycloak) est servie par le Config Server
+# (Backend/config-server/src/main/resources/config-repo/patient-service*.yml).
+# Sans Config Server ni base disponible, le service démarre sur une base H2 en mémoire.
+server:
+  port: 8081
+spring:
+  application:
+    name: patient-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+clinique:
+  security:
+    enabled: ${SECURITY_ENABLED:false}
