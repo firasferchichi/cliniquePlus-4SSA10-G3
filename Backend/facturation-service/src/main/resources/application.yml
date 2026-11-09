@@ -1,0 +1,45 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: facturation-service
+  jpa:
+    open-in-view: false
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+      client:
+        config:
+          patient-service:
+            connect-timeout: 3000
+            read-timeout: 3000
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 1s
+          max-attempts: 3
+          max-interval: 10s
+          multiplier: 2
+        default-requeue-rejected: false
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      patientCoverage:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+clinique:
+  security:
+    enabled: ${SECURITY_ENABLED:false}
