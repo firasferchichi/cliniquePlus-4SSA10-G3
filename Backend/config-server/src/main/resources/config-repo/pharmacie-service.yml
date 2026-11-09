@@ -1,0 +1,9 @@
+# Pharmacie — base PostgreSQL (pharmacie_db). En local sans profil docker : H2 en mémoire.
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true

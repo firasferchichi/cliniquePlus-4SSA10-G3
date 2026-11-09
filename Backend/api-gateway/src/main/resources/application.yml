@@ -1,0 +1,59 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://localhost:8180/realms/clinique/protocol/openid-connect/certs}
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+          routes:
+          - id: patient-service
+            uri: lb://patient-service
+            predicates:
+              - Path=/api/patients/**
+          - id: personnel-service
+            uri: lb://personnel-service
+            predicates:
+              - Path=/api/personnel/**,/api/specialites/**
+          - id: rendezvous-service
+            uri: lb://rendezvous-service
+            predicates:
+              - Path=/api/rendez-vous/**
+          - id: consultation-service
+            uri: lb://consultation-service
+            predicates:
+              - Path=/api/consultations/**,/api/ordonnances/**
+          - id: pharmacie-service
+            uri: lb://pharmacie-service
+            predicates:
+              - Path=/api/medicaments/**,/api/delivrances/**
+          - id: facturation-service
+            uri: lb://facturation-service
+            predicates:
+              - Path=/api/factures/**,/api/tarifs/**
+          - id: notification-service
+            uri: lb://notification-service
+            predicates:
+              - Path=/api/notifications/**
+          - id: notification-ws
+            uri: lb:ws://notification-service
+            predicates:
+              - Path=/ws/**
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+clinique:
+  security:
+    enabled: ${SECURITY_ENABLED:false}

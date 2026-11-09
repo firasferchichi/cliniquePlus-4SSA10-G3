@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 1210" width="1640" height="1210" font-family="DejaVu Sans, Arial, sans-serif">
+<rect width="1640" height="1210" fill="white"/>
+<text x="820.0" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a">Clinique+ — Diagramme de cas d'utilisation général</text>
+<rect x="330" y="80" width="1220" height="1100" rx="16" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+<text x="940.0" y="108" text-anchor="middle" font-size="16" font-weight="700" fill="#334155">Système Clinique+</text>
+<circle cx="150" cy="225.0" r="13" fill="white" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="150" y1="238.0" x2="150" y2="267.0" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="132" y1="249.0" x2="168" y2="249.0" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="150" y1="267.0" x2="136" y2="289.0" stroke="#2563eb" stroke-width="2.5"/>
+<line x1="150" y1="267.0" x2="164" y2="289.0" stroke="#2563eb" stroke-width="2.5"/>
+<text x="150" y="309.0" text-anchor="middle" font-size="15" font-weight="700" fill="#2563eb">Patient</text>
+<line x1="172" y1="255.0" x2="490" y2="155.0" stroke="#2563eb" stroke-width="1.4"/>
+<ellipse cx="720" cy="155.0" rx="230" ry="20" fill="white" stroke="#2563eb" stroke-width="1.8"/>
+<text x="720" y="160.0" text-anchor="middle" font-size="14" fill="#0f172a">S&#x27;inscrire / gérer son profil</text>
+<line x1="172" y1="255.0" x2="490" y2="205.0" stroke="#2563eb" stroke-width="1.4"/>
+<ellipse cx="720" cy="205.0" rx="230" ry="20" fill="white" stroke="#2563eb" stroke-width="1.8"/>
+<text x="720" y="210.0" text-anchor="middle" font-size="14" fill="#0f172a">Prendre / annuler un RDV</text>
+<line x1="172" y1="255.0" x2="490" y2="255.0" stroke="#2563eb" stroke-width="1.4"/>
+<ellipse cx="720" cy="255.0" rx="230" ry="20" fill="white" stroke="#2563eb" stroke-width="1.8"/>
+<text x="720" y="260.0" text-anchor="middle" font-size="14" fill="#0f172a">Consulter son historique médical</text>
+<line x1="172" y1="255.0" x2="490" y2="305.0" stroke="#2563eb" stroke-width="1.4"/>
+<ellipse cx="720" cy="305.0" rx="230" ry="20" fill="white" stroke="#2563eb" stroke-width="1.8"/>
+<text x="720" y="310.0" text-anchor="middle" font-size="14" fill="#0f172a">Payer et télécharger ses factures</text>
+<line x1="172" y1="255.0" x2="490" y2="355.0" stroke="#2563eb" stroke-width="1.4"/>
+<ellipse cx="720" cy="355.0" rx="230" ry="20" fill="white" stroke="#2563eb" stroke-width="1.8"/>
+<text x="720" y="360.0" text-anchor="middle" font-size="14" fill="#0f172a">Recevoir rappels et notifications</text>
+<circle cx="150" cy="455.0" r="13" fill="white" stroke="#0891b2" stroke-width="2.5"/>
+<line x1="150" y1="468.0" x2="150" y2="497.0" stroke="#0891b2" stroke-width="2.5"/>
+<line x1="132" y1="479.0" x2="168" y2="479.0" stroke="#0891b2" stroke-width="2.5"/>
+<line x1="150" y1="497.0" x2="136" y2="519.0" stroke="#0891b2" stroke-width="2.5"/>
+<line x1="150" y1="497.0" x2="164" y2="519.0" stroke="#0891b2" stroke-width="2.5"/>
+<text x="150" y="539.0" text-anchor="middle" font-size="15" font-weight="700" fill="#0891b2">Secrétaire</text>
+<line x1="172" y1="485.0" x2="490" y2="435.0" stroke="#0891b2" stroke-width="1.4"/>
+<ellipse cx="720" cy="435.0" rx="230" ry="20" fill="white" stroke="#0891b2" stroke-width="1.8"/>
+<text x="720" y="440.0" text-anchor="middle" font-size="14" fill="#0f172a">Créer / mettre à jour un dossier patient</text>
+<line x1="172" y1="485.0" x2="490" y2="485.0" stroke="#0891b2" stroke-width="1.4"/>
+<ellipse cx="720" cy="485.0" rx="230" ry="20" fill="white" stroke="#0891b2" stroke-width="1.8"/>
+<text x="720" y="490.0" text-anchor="middle" font-size="14" fill="#0f172a">Gérer l&#x27;agenda et les RDV</text>
+<line x1="172" y1="485.0" x2="490" y2="535.0" stroke="#0891b2" stroke-width="1.4"/>
+<ellipse cx="720" cy="535.0" rx="230" ry="20" fill="white" stroke="#0891b2" stroke-width="1.8"/>
+<text x="720" y="540.0" text-anchor="middle" font-size="14" fill="#0f172a">Encaisser les paiements</text>
+<circle cx="150" cy="660.0" r="13" fill="white" stroke="#16a34a" stroke-width="2.5"/>
+<line x1="150" y1="673.0" x2="150" y2="702.0" stroke="#16a34a" stroke-width="2.5"/>
+<line x1="132" y1="684.0" x2="168" y2="684.0" stroke="#16a34a" stroke-width="2.5"/>
+<line x1="150" y1="702.0" x2="136" y2="724.0" stroke="#16a34a" stroke-width="2.5"/>
+<line x1="150" y1="702.0" x2="164" y2="724.0" stroke="#16a34a" stroke-width="2.5"/>
+<text x="150" y="744.0" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">Médecin</text>
+<line x1="172" y1="690.0" x2="490" y2="615.0" stroke="#16a34a" stroke-width="1.4"/>
+<ellipse cx="720" cy="615.0" rx="230" ry="20" fill="white" stroke="#16a34a" stroke-width="1.8"/>
+<text x="720" y="620.0" text-anchor="middle" font-size="14" fill="#0f172a">Consulter le dossier d&#x27;un patient</text>
+<line x1="172" y1="690.0" x2="490" y2="665.0" stroke="#16a34a" stroke-width="1.4"/>
+<ellipse cx="720" cy="665.0" rx="230" ry="20" fill="white" stroke="#16a34a" stroke-width="1.8"/>
+<text x="720" y="670.0" text-anchor="middle" font-size="14" fill="#0f172a">Réaliser une consultation (diagnostic)</text>
+<line x1="172" y1="690.0" x2="490" y2="715.0" stroke="#16a34a" stroke-width="1.4"/>
+<ellipse cx="720" cy="715.0" rx="230" ry="20" fill="white" stroke="#16a34a" stroke-width="1.8"/>
+<text x="720" y="720.0" text-anchor="middle" font-size="14" fill="#0f172a">Prescrire une ordonnance</text>
+<line x1="172" y1="690.0" x2="490" y2="765.0" stroke="#16a34a" stroke-width="1.4"/>
+<ellipse cx="720" cy="765.0" rx="230" ry="20" fill="white" stroke="#16a34a" stroke-width="1.8"/>
+<text x="720" y="770.0" text-anchor="middle" font-size="14" fill="#0f172a">Déclarer une absence</text>
+<circle cx="150" cy="865.0" r="13" fill="white" stroke="#9333ea" stroke-width="2.5"/>
+<line x1="150" y1="878.0" x2="150" y2="907.0" stroke="#9333ea" stroke-width="2.5"/>
+<line x1="132" y1="889.0" x2="168" y2="889.0" stroke="#9333ea" stroke-width="2.5"/>
+<line x1="150" y1="907.0" x2="136" y2="929.0" stroke="#9333ea" stroke-width="2.5"/>
+<line x1="150" y1="907.0" x2="164" y2="929.0" stroke="#9333ea" stroke-width="2.5"/>
+<text x="150" y="949.0" text-anchor="middle" font-size="15" font-weight="700" fill="#9333ea">Pharmacien</text>
+<line x1="172" y1="895.0" x2="490" y2="845.0" stroke="#9333ea" stroke-width="1.4"/>
+<ellipse cx="720" cy="845.0" rx="230" ry="20" fill="white" stroke="#9333ea" stroke-width="1.8"/>
+<text x="720" y="850.0" text-anchor="middle" font-size="14" fill="#0f172a">Gérer le catalogue et le stock</text>
+<line x1="172" y1="895.0" x2="490" y2="895.0" stroke="#9333ea" stroke-width="1.4"/>
+<ellipse cx="720" cy="895.0" rx="230" ry="20" fill="white" stroke="#9333ea" stroke-width="1.8"/>
+<text x="720" y="900.0" text-anchor="middle" font-size="14" fill="#0f172a">Délivrer une ordonnance</text>
+<line x1="172" y1="895.0" x2="490" y2="945.0" stroke="#9333ea" stroke-width="1.4"/>
+<ellipse cx="720" cy="945.0" rx="230" ry="20" fill="white" stroke="#9333ea" stroke-width="1.8"/>
+<text x="720" y="950.0" text-anchor="middle" font-size="14" fill="#0f172a">Recevoir les alertes de stock</text>
+<circle cx="150" cy="1045.0" r="13" fill="white" stroke="#c2410c" stroke-width="2.5"/>
+<line x1="150" y1="1058.0" x2="150" y2="1087.0" stroke="#c2410c" stroke-width="2.5"/>
+<line x1="132" y1="1069.0" x2="168" y2="1069.0" stroke="#c2410c" stroke-width="2.5"/>
+<line x1="150" y1="1087.0" x2="136" y2="1109.0" stroke="#c2410c" stroke-width="2.5"/>
+<line x1="150" y1="1087.0" x2="164" y2="1109.0" stroke="#c2410c" stroke-width="2.5"/>
+<text x="150" y="1129.0" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">Administrateur</text>
+<line x1="172" y1="1075.0" x2="490" y2="1025.0" stroke="#c2410c" stroke-width="1.4"/>
+<ellipse cx="720" cy="1025.0" rx="230" ry="20" fill="white" stroke="#c2410c" stroke-width="1.8"/>
+<text x="720" y="1030.0" text-anchor="middle" font-size="14" fill="#0f172a">Gérer le personnel et les spécialités</text>
+<line x1="172" y1="1075.0" x2="490" y2="1075.0" stroke="#c2410c" stroke-width="1.4"/>
+<ellipse cx="720" cy="1075.0" rx="230" ry="20" fill="white" stroke="#c2410c" stroke-width="1.8"/>
+<text x="720" y="1080.0" text-anchor="middle" font-size="14" fill="#0f172a">Gérer les tarifs</text>
+<line x1="172" y1="1075.0" x2="490" y2="1125.0" stroke="#c2410c" stroke-width="1.4"/>
+<ellipse cx="720" cy="1125.0" rx="230" ry="20" fill="white" stroke="#c2410c" stroke-width="1.8"/>
+<text x="720" y="1130.0" text-anchor="middle" font-size="14" fill="#0f172a">Superviser les notifications</text>
+<text x="1000" y="140" font-size="14" font-weight="700" fill="#334155">Service propriétaire principal</text>
+<text x="1000" y="170" font-size="13" fill="#0f172a">Dossier patient, profil → <tspan font-weight="700">patient-service</tspan></text>
+<text x="1000" y="194" font-size="13" fill="#0f172a">RDV, agenda → <tspan font-weight="700">rendezvous-service</tspan></text>
+<text x="1000" y="218" font-size="13" fill="#0f172a">Consultation, ordonnance, historique → <tspan font-weight="700">consultation-service</tspan></text>
+<text x="1000" y="242" font-size="13" fill="#0f172a">Stock, délivrance → <tspan font-weight="700">pharmacie-service</tspan></text>
+<text x="1000" y="266" font-size="13" fill="#0f172a">Factures, paiements, tarifs → <tspan font-weight="700">facturation-service</tspan></text>
+<text x="1000" y="290" font-size="13" fill="#0f172a">Personnel, absences, spécialités → <tspan font-weight="700">personnel-service</tspan></text>
+<text x="1000" y="314" font-size="13" fill="#0f172a">Rappels, alertes, supervision → <tspan font-weight="700">notification-service</tspan></text>
+</svg>

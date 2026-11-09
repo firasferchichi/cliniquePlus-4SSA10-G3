@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native   # remplaçable par un dépôt Git (spring.cloud.config.server.git.uri)
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config-repo

@@ -1,0 +1,3 @@
+spring:
+  mongodb:
+    uri: mongodb://mongo-consultation:27017/consultation_db

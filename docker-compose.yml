@@ -1,0 +1,139 @@
+# Clinique+ — environnement complet
+# 1) cd Backend && for d in */; do (cd $d && ./mvnw -q -DskipTests package); done
+# 2) docker compose up -d --build
+name: clinique-plus
+
+x-service: &service
+  restart: unless-stopped
+  networks: [clinique-net]
+  environment: &service-env
+    SPRING_PROFILES_ACTIVE: docker
+    CONFIG_SERVER_URL: http://config-server:8888
+    EUREKA_URL: http://eureka-server:8761/eureka
+  depends_on: &service-deps
+    config-server: { condition: service_started }
+    eureka-server: { condition: service_started }
+    rabbitmq: { condition: service_healthy }
+
+services:
+  # ---------- Infrastructure ----------
+  eureka-server:
+    build: ./Backend/eureka-server
+    ports: ["8761:8761"]
+    networks: [clinique-net]
+
+  config-server:
+    build: ./Backend/config-server
+    ports: ["8888:8888"]
+    networks: [clinique-net]
+
+  api-gateway:
+    <<: *service
+    build: ./Backend/api-gateway
+    ports: ["8080:8080"]
+    environment:
+      <<: *service-env
+      JWK_SET_URI: http://keycloak:8080/realms/clinique/protocol/openid-connect/certs
+      SECURITY_ENABLED: "true"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.4
+    command: start-dev --import-realm
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    volumes:
+      - ./keycloak/realm-clinique.json:/opt/keycloak/data/import/realm-clinique.json:ro
+    ports: ["8180:8080"]
+    networks: [clinique-net]
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    ports: ["5672:5672", "15672:15672"]
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      retries: 10
+    networks: [clinique-net]
+
+  mailpit:
+    image: axllent/mailpit
+    ports: ["8025:8025", "1025:1025"]
+    networks: [clinique-net]
+
+  # ---------- Bases (une par microservice) ----------
+  mysql-patient:
+    image: mysql:8.4
+    environment: { MYSQL_ROOT_PASSWORD: clinique, MYSQL_DATABASE: patient_db }
+    volumes: [patient-data:/var/lib/mysql]
+    networks: [clinique-net]
+  mysql-personnel:
+    image: mysql:8.4
+    environment: { MYSQL_ROOT_PASSWORD: clinique, MYSQL_DATABASE: personnel_db }
+    volumes: [personnel-data:/var/lib/mysql]
+    networks: [clinique-net]
+  postgres-rdv:
+    image: postgres:17
+    environment: { POSTGRES_USER: clinique, POSTGRES_PASSWORD: clinique, POSTGRES_DB: rdv_db }
+    volumes: [rdv-data:/var/lib/postgresql/data]
+    networks: [clinique-net]
+  postgres-pharmacie:
+    image: postgres:17
+    environment: { POSTGRES_USER: clinique, POSTGRES_PASSWORD: clinique, POSTGRES_DB: pharmacie_db }
+    volumes: [pharmacie-data:/var/lib/postgresql/data]
+    networks: [clinique-net]
+  postgres-facturation:
+    image: postgres:17
+    environment: { POSTGRES_USER: clinique, POSTGRES_PASSWORD: clinique, POSTGRES_DB: facturation_db }
+    volumes: [facturation-data:/var/lib/postgresql/data]
+    networks: [clinique-net]
+  mongo-consultation:
+    image: mongo:8
+    volumes: [consultation-data:/data/db]
+    networks: [clinique-net]
+  mongo-notification:
+    image: mongo:8
+    volumes: [notification-data:/data/db]
+    networks: [clinique-net]
+
+  # ---------- Microservices métier ----------
+  patient-service:
+    <<: *service
+    build: ./Backend/patient-service
+    depends_on: { <<: *service-deps, mysql-patient: { condition: service_started } }
+  personnel-service:
+    <<: *service
+    build: ./Backend/personnel-service
+    depends_on: { <<: *service-deps, mysql-personnel: { condition: service_started } }
+  rendezvous-service:
+    <<: *service
+    build: ./Backend/rendezvous-service
+    depends_on: { <<: *service-deps, postgres-rdv: { condition: service_started } }
+  consultation-service:
+    <<: *service
+    build: ./Backend/consultation-service
+    depends_on: { <<: *service-deps, mongo-consultation: { condition: service_started } }
+  pharmacie-service:
+    <<: *service
+    build: ./Backend/pharmacie-service
+    depends_on: { <<: *service-deps, postgres-pharmacie: { condition: service_started } }
+  facturation-service:
+    <<: *service
+    build: ./Backend/facturation-service
+    depends_on: { <<: *service-deps, postgres-facturation: { condition: service_started } }
+  notification-service:
+    <<: *service
+    build: ./Backend/notification-service
+    depends_on: { <<: *service-deps, mongo-notification: { condition: service_started }, mailpit: { condition: service_started } }
+
+networks:
+  clinique-net:
+
+volumes:
+  patient-data:
+  personnel-data:
+  rdv-data:
+  pharmacie-data:
+  facturation-data:
+  consultation-data:
+  notification-data:

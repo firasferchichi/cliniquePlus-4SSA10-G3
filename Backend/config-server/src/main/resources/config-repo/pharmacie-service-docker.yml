@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-pharmacie:5432/pharmacie_db
+    username: clinique
+    password: ${DB_PASSWORD:clinique}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false

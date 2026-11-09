@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-rdv:5432/rdv_db
+    username: clinique
+    password: ${DB_PASSWORD:clinique}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
