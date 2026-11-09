@@ -1,0 +1,20 @@
+# Configuration locale minimale.
+# La configuration complète (bases, RabbitMQ, Keycloak) est servie par le Config Server
+# (Backend/config-server/src/main/resources/config-repo/consultation-service*.yml).
+# Sans Config Server ni base disponible, le service démarre quand même (MongoDB est contacté à la demande).
+server:
+  port: 8084
+spring:
+  application:
+    name: consultation-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+clinique:
+  security:
+    enabled: ${SECURITY_ENABLED:false}
